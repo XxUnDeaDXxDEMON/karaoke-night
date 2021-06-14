@@ -28,13 +28,21 @@
   <!-- --------------------------------MAIN BODY---------------------------------- -->
   <body>
     <main class="row">
-      <div class="col-4">
+      <div class="col-3">
         Search term: <input type="text" id="searchTerm" value="" />
         <button id="searchBtn">Search!</button>
       </div>
+      <!-- Data1: Movie poster -->
       <div class="col-4" id="response-container"></div>
-      <div class="col-4" id="gif-container"></div>
+      <!-- Data2: Movie title -->
+      <div class="col-2" id="movieTitle"></div>
+      <!-- Data3: Movie year -->
+      <div class="col-2" id="movieYear"></div>
+      <!-- Data4: Movie imdbID -->
+      <div class="col-1" id="movieId"></div>
     </main>
+    <!-- Data5: WIKI description -->
+    <div id="wikiResponse"></div>
 
     <!-- ---------------------------bootstrap & jquery----------------------------- -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
