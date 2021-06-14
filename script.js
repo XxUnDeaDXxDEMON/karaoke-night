@@ -1,30 +1,41 @@
-// ---------------------------------API: MOVIE & WIKI--------------------------------------
+// ---------------------------------------------FIRST API: MOVIE -------------------------------------
 // Create a function called `myFunction()`
-var myFunction = function () {
+var apiFunction = function () {
   var search = document.querySelector("#searchTerm").value;
-  // Make a `fetch` request concatenating that variable to the query URL
+  // Make a `fetch` request from MOVIE
   fetch(`http://www.omdbapi.com/?s=${search}&apikey=46b2d125`)
     .then(function (response) {
       return response.json();
     })
     .then(function (response) {
       console.log(response);
-      // Create a variable that will select the <div> where the IMAGE will be displayed
+
+      // ---------------------------------------------------------------------data 1: movie poster
       var container = document.querySelector("#response-container");
-      // Empty out the <div> before we append a GIF to it
       container.innerHTML = "";
       var Img = document.createElement("img");
-
       var i = Math.floor(Math.random() * 10);
       Img.setAttribute("src", response.Search[i].Poster);
-      // Append 'Img' to the <div>
       Img.setAttribute("height", 400);
       container.appendChild(Img);
 
-      //------------------WIKI--------------------------
+      // ---------------------------------------------------------------------data 2: movie title
+      var movieTitle = document.querySelector("#movieTitle");
+      movieTitle.innerHTML = response.Search[i].Title;
 
+      // ---------------------------------------------------------------------data 3: movie year
+      var movieYear = document.querySelector("#movieYear");
+      movieYear.innerHTML = response.Search[i].Year;
+
+      // ---------------------------------------------------------------------data 4: movie imdbID
+      var movieId = document.querySelector("#movieId");
+      movieId.innerHTML = response.Search[i].imdbID;
+
+      //--------------------------------------------SECOND API: WIKIPEDIA------------------------------------
+      // get the title from Movie response, and link it to wiki search
       var title = response.Search[i].Title;
-      console.log(title);
+      console.log("MOVIE TITLE:" + title);
+      // Make a `fetch` request from WIKIPEDIA
       return fetch(
         `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exsentences=8&titles=${title}&origin=*`
       );
@@ -34,8 +45,9 @@ var myFunction = function () {
     })
     .then(function (wikiResponse) {
       console.log(wikiResponse);
-      // extract movie description from wiki
-      // get and save the page id as variable
+
+      // ---------------------------------------------------------------------data 5: wikipedia description
+      // this is tricky, get the pageID in wikipedia using for function
       var pageData = wikiResponse.query.pages;
       var pageKey;
       for (let key in pageData) {
@@ -56,5 +68,5 @@ var myFunction = function () {
     });
 };
 
-// Click the button to run myFunction
-document.getElementById("searchBtn").onclick = myFunction;
+//--------------------------------------------RUN THE API FUNCTION-----------------------------------
+document.getElementById("searchBtn").onclick = apiFunction;
