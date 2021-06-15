@@ -20,47 +20,31 @@ header {
 }
 
 .navBar {
-  margin: 0 40px;
+  margin: 5px 0;
   width: 90%;
-  height: 80px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /*position: absolute;*/
-  margin-top: 5px;
+  justify-content: space-around;
 }
 
-.logo {
-  margin-bottom: 5px;
-  justify-content: space-between;
+.title {
   display: flex;
-}
-
-.logo h2 {
-  text-decoration: none;
-}
-
-/*.menu ul {
-  list-style: none;
-}*.
-
-/*.menu ul li {
-  font-size: 15px;
-  font-weight: 800;
-  display: inline-block;
-  padding: 0 50px;
-  cursor: pointer;
-}*/
-
-.userProfile {
-  display: inline-flex;
   flex-direction: row;
-  justify-content: space-evenly;
 }
 
-.movieBtn {
-  margin-bottom: 10px;
-  padding: 0, 10px;
+.title h2 {
+  margin-top: 10px;
+  font-family: fantasy;
+}
+.website-logo {
+  margin-left: 5px;
+  width: 5vw;
+  height: 7vh;
+}
+
+/*my movie button*/
+
+.movie-history {
+  margin: 7px 15px;
   display: block;
   font-size: 15px;
   cursor: pointer;
@@ -68,27 +52,32 @@ header {
   background-color: whitesmoke;
   padding: 5px 15px;
 }
-.icon {
-  padding: 0, 10px;
-}
-.profileBtn {
-  padding: 0, 10px;
+
+.movie-history:hover {
+  background-color: lightslategray;
 }
 
-/* main content*/
+/* search area*/
 
-.searchMovie {
-  margin: 40px;
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#searchTerm {
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px 0;
+  height: 5vh;
+}
+#searchBtn {
+  border-radius: 5px;
+  margin: 10px 0 0 5px;
+  width: 3vw;
+  height: 5vh;
 }
 
-.movie {
-  margin: 20px 40px;
-  border: black solid 2px;
-}
-
-.content {
-  margin: 0 10px;
-}
+/* hero*/
 
 /*
 footer {

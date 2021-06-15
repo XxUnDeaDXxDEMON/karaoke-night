@@ -22,18 +22,60 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/style.css" />
     <title>Movie Night</title>
   </head>
+
+  <!--header -->
+  <header class="navbar">
+    <div class="title">
+      <img
+        class="website-logo"
+        src="assets/icons/film-solid.svg"
+        alt="website logo"
+      />
+      <h2>Movie Night</h2>
+    </div>
+    <div class="searchbar">
+      <input
+        type="text"
+        id="searchTerm"
+        value=""
+        placeholder="search your movie"
+      />
+      <button id="searchBtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </button>
+      <button class="movie-history">My Movies</button>
+    </div>
+  </header>
+
+  <!--Hero-->
+  <div class="background">
+    <img
+      src="assets/icons/background.jpeg"
+      width="100%"
+      alt="background image"
+    />
+  </div>
+
   <!-- --------------------------------MAIN BODY---------------------------------- -->
   <body>
     <main class="row">
-      <div class="col-3">
-        Search term: <input type="text" id="searchTerm" value="" />
-        <button id="searchBtn">Search!</button>
-      </div>
+      <div class="col-3"></div>
       <!-- Data1: Movie poster -->
-      <div class="col-4" id="response-container"></div>
+      <div class="bgimg" id="response-container"></div>
       <!-- Data2: Movie title -->
       <div class="col-2" id="movieTitle"></div>
       <!-- Data3: Movie year -->
