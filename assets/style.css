@@ -7,7 +7,12 @@
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Gill Sans, sans-serif;
+  background-color: #a2a2a1ff;
+}
+
+li {
+  list-style: none;
 }
 
 /*head bar*/
@@ -17,11 +22,12 @@ header {
   height: 10vh;
   width: 100%;
   position: relative;
+  border-bottom: solid 5px lightslategrey;
 }
 
 .navBar {
   margin: 5px 0;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -44,7 +50,7 @@ header {
 /*my movie button*/
 
 .movie-history {
-  margin: 7px 15px;
+  margin: 7px 15px 10px;
   display: block;
   font-size: 15px;
   cursor: pointer;
@@ -67,17 +73,58 @@ header {
 #searchTerm {
   text-align: center;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 7px 0;
   height: 5vh;
 }
 #searchBtn {
+  background-color: lightslategray;
   border-radius: 5px;
-  margin: 10px 0 0 5px;
+  margin: 7px 0 0 5px;
   width: 3vw;
   height: 5vh;
 }
 
-/* hero*/
+/* API */
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.movie-title {
+  margin: 10px 40px;
+  font-size: 30px;
+  width: 100%;
+}
+
+.movie-info {
+  margin: 0 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-year {
+  padding: 10px 0;
+}
+
+.movie-ID {
+  padding: 10px 0 0 20px;
+}
+
+.poster-wiki {
+  display: flex;
+  flex-direction: row;
+}
+.poster {
+  padding: 0 40px;
+  width: 30%;
+}
+
+/*wiki*/
+
+.wiki {
+  margin: 10px 20px;
+  padding: 0 10px;
+  /*border: solid 2px lightslategray;*/
+}
 
 /*
 footer {

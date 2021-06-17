@@ -61,30 +61,34 @@
     </div>
   </header>
 
-  <!--Hero-->
+  <!--Hero
   <div class="background">
     <img
       src="assets/icons/background.jpeg"
       width="100%"
       alt="background image"
     />
-  </div>
+  </div>-->
 
   <!-- --------------------------------MAIN BODY---------------------------------- -->
   <body>
     <main class="row">
-      <div class="col-3"></div>
-      <!-- Data1: Movie poster -->
-      <div class="bgimg" id="response-container"></div>
       <!-- Data2: Movie title -->
-      <div class="col-2" id="movieTitle"></div>
-      <!-- Data3: Movie year -->
-      <div class="col-2" id="movieYear"></div>
-      <!-- Data4: Movie imdbID -->
-      <div class="col-1" id="movieId"></div>
+      <div class="movie-title" id="movieTitle"></div>
+      <!--movie info/wiki-->
+      <div class="movie-info">
+        <!-- Data3: Movie year -->
+        <div class="movie-year" id="movieYear"></div>
+        <!-- Data4: Movie imdbID -->
+        <div class="movie-ID" id="movieId"></div>
+      </div>
+      <div class="poster-wiki">
+        <!-- Data1: Movie poster -->
+        <div class="poster" id="response-container"></div>
+        <!-- Data5: WIKI description -->
+        <div class="wiki" id="wikiResponse"></div>
+      </div>
     </main>
-    <!-- Data5: WIKI description -->
-    <div id="wikiResponse"></div>
 
     <!-- ---------------------------bootstrap & jquery----------------------------- -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
