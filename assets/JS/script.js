@@ -68,7 +68,7 @@ else{
   saveList = JSON.parse(localStorage.getItem('poster')); //Create local storage as an array
   //alert("local storage has something");
 }
-alert(saveList);
+//alert(saveList);
 //--------------------------------------------RUN THE API FUNCTION-----------------------------------
 document.getElementById("searchBtn").onclick = apiFunction;
 document.getElementById("saveBtn").onclick = posterSave;
@@ -84,7 +84,7 @@ function posterSave(){
   saveList.push(obj);
   //alert(saveList.length); //Debug to check the length of the local storage array
   if(saveList.length > 5) saveList.shift();
-  alert(saveList[0]);
+  //alert(saveList[0]);
   localStorage.setItem('poster', JSON.stringify (saveList));
   var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
       //containerTwo.innerHTML = "";
