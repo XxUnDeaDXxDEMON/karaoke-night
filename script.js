@@ -16,20 +16,21 @@ var apiFunction = function () {
       var Img = document.createElement("img");
       var i = Math.floor(Math.random() * 10);
       Img.setAttribute("src", response.Search[i].Poster);
-      Img.setAttribute("height", 400);
+      Img.setAttribute("height", 600);
+
       container.appendChild(Img);
 
       // ---------------------------------------------------------------------data 2: movie title
       var movieTitle = document.querySelector("#movieTitle");
-      movieTitle.innerHTML = response.Search[i].Title;
+      movieTitle.innerHTML = "Movie Title:  " + response.Search[i].Title;
 
       // ---------------------------------------------------------------------data 3: movie year
       var movieYear = document.querySelector("#movieYear");
-      movieYear.innerHTML = response.Search[i].Year;
+      movieYear.innerHTML = "Year: " + response.Search[i].Year;
 
       // ---------------------------------------------------------------------data 4: movie imdbID
       var movieId = document.querySelector("#movieId");
-      movieId.innerHTML = response.Search[i].imdbID;
+      movieId.innerHTML = "IMDb ID: " + response.Search[i].imdbID;
 
       //--------------------------------------------SECOND API: WIKIPEDIA------------------------------------
       // get the title from Movie response, and link it to wiki search
@@ -65,8 +66,43 @@ var apiFunction = function () {
       wikiText.innerHTML = wikiResponse.query.pages[pageKey].extract;
 
       wikiContainer.append(wikiText);
+
+      const allLi = document.querySelectorAll("li");
+
+      console.log(allLi);
+
+      for (let i = 0; i < allLi.length; i++) {
+        const listItem = allLi[i];
+
+        // listItem.setAttribute("style", "list-style: none");
+      }
     });
 };
 
-//--------------------------------------------RUN THE API FUNCTION-----------------------------------
-document.getElementById("searchBtn").onclick = apiFunction;
+//--------------------------------------------RUN ON WEBSITE LOAD-----------------------------------
+var saveList = localStorage.getItem("poster");
+if (saveList == null) {
+  var saveList = []; //Create as empty array if no local storage
+  //alert("local storage is empty");
+} else {
+  var saveList = [localStorage.getItem("poster")]; //Create local storage as an array
+  //alert("local storage has something");
+
+  //alert(saveList);
+  //--------------------------------------------RUN THE API FUNCTION-----------------------------------
+  document.getElementById("searchBtn").onclick = apiFunction;
+  document.getElementById("saveBtn").onclick = posterSave;
+
+  //--------------------------------------------RUN ON SAVE-----------------------------------
+  function posterSave() {
+    saveList.push(movieId.innerHTML);
+    //alert(saveList.length); //Debug to check the length of the local storage array
+    if (saveList.length > 5) saveList.shift();
+    //saveList.classList = "save-history";
+    localStorage.setItem("poster", saveList);
+  }
+}
+
+//Display Saved
+// var savedPoster = localStorage.getItem('poster');
+// document.getElementById('poster').value = savedPoster;
