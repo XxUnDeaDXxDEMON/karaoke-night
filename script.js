@@ -68,54 +68,35 @@ var apiFunction = function () {
     });
 };
 
+//--------------------------------------------RUN ON WEBSITE LOAD-----------------------------------
+var saveList = localStorage.getItem('poster');
+if(saveList == null){
+  var saveList = [] //Create as empty array if no local storage
+  //alert("local storage is empty");
+}
+else{
+  var saveList = [localStorage.getItem('poster')]; //Create local storage as an array
+  //alert("local storage has something");
+}
+alert(saveList);
 //--------------------------------------------RUN THE API FUNCTION-----------------------------------
 document.getElementById("searchBtn").onclick = apiFunction;
 document.getElementById("saveBtn").onclick = posterSave;
 
-// Local Storage
-// {
-//     $('.saveBtn').click(function () {
-//       var mp1 = document.getElementById('1').value;
-//       localStorage.setItem('text1', mp1);
-//       var mp2 = document.getElementById('2').value;
-//       localStorage.setItem('text2', mp2);
-//       var mp3 = document.getElementById('3').value;
-//       localStorage.setItem('text3', mp3);
-//       var mp4 = document.getElementById('4').value;
-//       localStorage.setItem('text4', mp4);
-//       var mp5 = document.getElementById('5').value;
-//       localStorage.setItem('text5', mp5);
-//     });
-// }
-
-//   // Display Saved Movies
-//   var savedMP1 = localStorage.getItem('text1');
-//   document.getElementById('1').value = savedMP1;
-//   var savedMP2 = localStorage.getItem('text2');
-//   document.getElementById('2').value = savedMP2;
-//   var savedMP3 = localStorage.getItem('text3');
-//   document.getElementById('3').value = savedMP3;
-//   var savedMP4 = localStorage.getItem('text4');
-//   document.getElementById('4').value = savedMP4;
-//   var savedMP5 = localStorage.getItem('text5');
-//   document.getElementById('5').value = savedMP5;
-
-// var saveSearch = function(){
-//   localStorage.setItem("posters", JSON.stringify(posters));
-// }
-
-// var savedPoster = localStorage.getItem()
-
+//--------------------------------------------RUN ON SAVE-----------------------------------
 function posterSave(){
   var poster = document.getElementById('searchTerm').value;
-  alert(document.querySelector("#searchTerm").value); //TO REMOVE
-  localStorage.setItem('poster', poster);
+
+  fetch(`http://www.omdbapi.com/?s=${poster}&apikey=46b2d125`)
+    .then(function (response) {
+      return response.json();
+    });
+
+  saveList.push(movieId.innerHTML);
+  localStorage.setItem('poster', saveList);
+  
+}
 
   //Display Saved
-  var savedPoster = localStorage.getItem('poster');
-  document.getElementById('poster').value = savedPoster;
-  
-
-  
-
-}
+  // var savedPoster = localStorage.getItem('poster');
+  // document.getElementById('poster').value = savedPoster;
