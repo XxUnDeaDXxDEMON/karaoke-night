@@ -88,10 +88,25 @@ function posterSave(){
   saveList.push(movieId.innerHTML);
   //alert(saveList.length); //Debug to check the length of the local storage array
   if(saveList.length > 5) saveList.shift();
+  alert(saveList[0]);
+
+  //Save movie poster when save button is clicked
+  //API to fetch http://www.omdbapi.com/?i=tt0120338
+  // fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (response) {
+  //     console.log(response);
+  //   });
+  //     var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
+  //     containerTwo.innerHTML = "";
+  //     var ImgTwo = document.createElement("img");
+  //     var iTwo = Math.floor(Math.random() * 10);
+  //     ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
+  //     ImgTwo.setAttribute("height", 400);
+  //     containerTwo.appendChild(Img);
+  // //End posted display
 
   localStorage.setItem('poster', saveList);
 }
-
-  //Display Saved
-  // var savedPoster = localStorage.getItem('poster');
-  // document.getElementById('poster').value = savedPoster;
