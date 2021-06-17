@@ -79,5 +79,37 @@ var apiFunction = function () {
     });
 };
 
+//--------------------------------------------RUN ON WEBSITE LOAD-----------------------------------
+//var saveList = localStorage.getItem("poster");
+//if (saveList == null) {
+//var saveList = []; //Create as empty array if no local storage
+//alert("local storage is empty");
+//} else {
+//var saveList = [localStorage.getItem("poster")]; //Create local storage as an array
+//alert("local storage has something");
+//console.log("poster");
+//}
+//alert(saveList);
+var saveList = JSON.parse(localStorage.getItem("poster"));
+if (saveList == null) {
+  saveList = []; //Create as empty array if no local storage
+  //alert("local storage is empty");
+} else {
+  //alert("local storage has something");
+}
 //--------------------------------------------RUN THE API FUNCTION-----------------------------------
 document.getElementById("searchBtn").onclick = apiFunction;
+document.getElementById("saveBtn").onclick = posterSave;
+
+//--------------------------------------------RUN ON SAVE-----------------------------------
+function posterSave() {
+  saveList.push(movieId.innerHTML);
+  //alert(saveList.length); //Debug to check the length of the local storage array
+  if (saveList.length > 5) saveList.shift();
+  //saveList.classList = "save-history";
+  localStorage.setItem("poster", saveList);
+}
+
+//Display Saved
+// var savedPoster = localStorage.getItem('poster');
+// document.getElementById('poster').value = savedPoster;

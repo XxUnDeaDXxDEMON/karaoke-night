@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Gill Sans, sans-serif;
-  background-color: #a2a2a1ff;
+  background-color: whitesmoke;
 }
 
 li {
@@ -90,13 +90,12 @@ header {
   flex-direction: column;
 }
 .movie-title {
-  margin: 10px 40px;
+  margin: 10px 50px;
   font-size: 30px;
   width: 100%;
 }
-
 .movie-info {
-  margin: 0 40px;
+  margin: 0 50px;
   display: flex;
   flex-direction: row;
 }
@@ -111,19 +110,33 @@ header {
 
 .poster-wiki {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
+  width: 98%;
 }
 .poster {
-  padding: 0 40px;
-  width: 30%;
+  padding: 10px 20px 0 50px;
 }
 
 /*wiki*/
 
 .wiki {
-  margin: 10px 20px;
+  background-color: #b1b3b3ff;
+  margin: 10px 30px 0 30px;
   padding: 0 10px;
+
   /*border: solid 2px lightslategray;*/
+}
+
+p {
+  padding: 5px 0;
+}
+
+/* my movies history files*/
+.save-history {
+  margin-left: 30px;
+  width: 80%;
+  border: 2px solid gray;
 }
 
 /*
