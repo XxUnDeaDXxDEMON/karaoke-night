@@ -21,7 +21,7 @@ var apiFunction = function () {
       container.appendChild(Img);
     
 
-      // ---------------------------------------------------------------------data 2: movie title
+      // ---------------------------------------------------------------------data 2:: movie title
       var movieTitle = document.querySelector("#movieTitle");
       movieTitle.innerHTML = response.Search[i].Title;
 
