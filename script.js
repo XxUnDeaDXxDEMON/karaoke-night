@@ -9,29 +9,24 @@ var apiFunction = function () {
     })
     .then(function (response) {
       console.log(response);
-
       // ---------------------------------------------------------------------data 1: movie poster
       var container = document.querySelector("#response-container");
       container.innerHTML = "";
       var Img = document.createElement("img");
       var i = Math.floor(Math.random() * 10);
       Img.setAttribute("src", response.Search[i].Poster);
-      Img.setAttribute("height", 600);
-
+      Img.setAttribute("height", 400);
+      Img.setAttribute("id", "imagePoster");
       container.appendChild(Img);
-
       // ---------------------------------------------------------------------data 2: movie title
       var movieTitle = document.querySelector("#movieTitle");
-      movieTitle.innerHTML = "Movie Title:  " + response.Search[i].Title;
-
+      movieTitle.innerHTML = response.Search[i].Title;
       // ---------------------------------------------------------------------data 3: movie year
       var movieYear = document.querySelector("#movieYear");
-      movieYear.innerHTML = "Year: " + response.Search[i].Year;
-
+      movieYear.innerHTML = response.Search[i].Year;
       // ---------------------------------------------------------------------data 4: movie imdbID
       var movieId = document.querySelector("#movieId");
-      movieId.innerHTML = "IMDb ID: " + response.Search[i].imdbID;
-
+      movieId.innerHTML = response.Search[i].imdbID;
       //--------------------------------------------SECOND API: WIKIPEDIA------------------------------------
       // get the title from Movie response, and link it to wiki search
       var title = response.Search[i].Title;
@@ -46,7 +41,6 @@ var apiFunction = function () {
     })
     .then(function (wikiResponse) {
       console.log(wikiResponse);
-
       // ---------------------------------------------------------------------data 5: wikipedia description
       // this is tricky, get the pageID in wikipedia using for function
       var pageData = wikiResponse.query.pages;
@@ -56,53 +50,88 @@ var apiFunction = function () {
         pageKey = key;
       }
       console.log(wikiResponse.query.pages[pageKey].extract);
-
       // display the wiki description
-
       var wikiContainer = document.querySelector("#wikiResponse");
       wikiContainer.innerHTML = "";
       var wikiText = document.createElement("P");
-
       wikiText.innerHTML = wikiResponse.query.pages[pageKey].extract;
-
       wikiContainer.append(wikiText);
-
-      const allLi = document.querySelectorAll("li");
-
-      console.log(allLi);
-
-      for (let i = 0; i < allLi.length; i++) {
-        const listItem = allLi[i];
-
-        // listItem.setAttribute("style", "list-style: none");
-      }
     });
 };
-
 //--------------------------------------------RUN ON WEBSITE LOAD-----------------------------------
-var saveList = localStorage.getItem("poster");
-if (saveList == null) {
-  var saveList = []; //Create as empty array if no local storage
+var saveList = localStorage.getItem('poster');
+if(saveList == null){
+  saveList = [] //Create as empty array if no local storage
   //alert("local storage is empty");
-} else {
-  var saveList = [localStorage.getItem("poster")]; //Create local storage as an array
-  //alert("local storage has something");
-
-  //alert(saveList);
-  //--------------------------------------------RUN THE API FUNCTION-----------------------------------
-  document.getElementById("searchBtn").onclick = apiFunction;
-  document.getElementById("saveBtn").onclick = posterSave;
-
-  //--------------------------------------------RUN ON SAVE-----------------------------------
-  function posterSave() {
-    saveList.push(movieId.innerHTML);
-    //alert(saveList.length); //Debug to check the length of the local storage array
-    if (saveList.length > 5) saveList.shift();
-    //saveList.classList = "save-history";
-    localStorage.setItem("poster", saveList);
-  }
 }
-
-//Display Saved
-// var savedPoster = localStorage.getItem('poster');
-// document.getElementById('poster').value = savedPoster;
+else{
+  saveList = JSON.parse(localStorage.getItem('poster')); //Create local storage as an array
+  //alert("local storage has something");
+}
+alert(saveList);
+//--------------------------------------------RUN THE API FUNCTION-----------------------------------
+document.getElementById("searchBtn").onclick = apiFunction;
+document.getElementById("saveBtn").onclick = posterSave;
+//--------------------------------------------RUN ON SAVE----------------------------------
+function posterSave(){
+  var imgNode = document.getElementById("imagePoster");
+  var imgSource = imgNode.getAttribute("src");
+    console.log(imgSource);
+  var obj = {
+    id: movieId.innerHTML,
+    img: imgSource
+  }
+  saveList.push(obj);
+  //alert(saveList.length); //Debug to check the length of the local storage array
+  if(saveList.length > 5) saveList.shift();
+  alert(saveList[0]);
+  localStorage.setItem('poster', JSON.stringify (saveList));
+  var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
+      //containerTwo.innerHTML = "";
+      var ImgTwo = document.createElement("img");
+      //var iTwo = Math.floor(Math.random() * response.Search.length);
+      ImgTwo.setAttribute("src", imgSource);
+      ImgTwo.setAttribute("height", 400);
+      containerTwo.appendChild(ImgTwo);
+  //Save movie poster when save button is clicked
+  // // API to fetch http://www.omdbapi.com/?i=tt0120338
+  return
+  fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      console.log(response);
+      var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
+      containerTwo.innerHTML = "";
+      var ImgTwo = document.createElement("img");
+      var iTwo = Math.floor(Math.random() * response.Search.length);
+      ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
+      ImgTwo.setAttribute("height", 400);
+      containerTwo.appendChild(ImgTwo);
+  //End posted display
+    });
+}
+function displayPoster(){
+  var saveList = localStorage.getItem('poster');
+  if(saveList == null){
+    saveList = [] //Create as empty array if no local storage
+    //alert("local storage is empty");
+  }
+  else{
+    saveList = JSON.parse(localStorage.getItem('poster')); //Create local storage as an array
+    //alert("local storage has something");
+  }
+  var hearted = document.getElementById("hearted-movie")
+  for (let i = 0; i < saveList.length; i++) {
+    var savedItem = saveList[i]
+    var elem = document.createElement("img");
+    elem.setAttribute("src", savedItem.img)
+    elem.setAttribute("alt", savedItem.id)
+    hearted.appendChild(elem);
+    // hearted.innerHTML += `
+    //   <img src="${saveList[i].img}" alt="${saveList[i].id}"/>
+    // `
+  }
+};
+displayPoster()
