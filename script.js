@@ -85,16 +85,11 @@ document.getElementById("saveBtn").onclick = posterSave;
 
 //--------------------------------------------RUN ON SAVE-----------------------------------
 function posterSave(){
-  var poster = document.getElementById('searchTerm').value;
-
-  fetch(`http://www.omdbapi.com/?s=${poster}&apikey=46b2d125`)
-    .then(function (response) {
-      return response.json();
-    });
-
   saveList.push(movieId.innerHTML);
+  //alert(saveList.length); //Debug to check the length of the local storage array
+  if(saveList.length > 5) saveList.shift();
+
   localStorage.setItem('poster', saveList);
-  
 }
 
   //Display Saved
