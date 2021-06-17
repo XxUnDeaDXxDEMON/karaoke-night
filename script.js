@@ -91,7 +91,7 @@ function posterSave(){
   alert(saveList[0]);
 
   //Save movie poster when save button is clicked
-  //API to fetch http://www.omdbapi.com/?i=tt0120338
+  // // API to fetch http://www.omdbapi.com/?i=tt0120338
   // fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
   //   .then(function (response) {
   //     return response.json();
@@ -106,7 +106,7 @@ function posterSave(){
   //     ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
   //     ImgTwo.setAttribute("height", 400);
   //     containerTwo.appendChild(Img);
-  // //End posted display
+  //End posted display
 
   localStorage.setItem('poster', saveList);
 }
