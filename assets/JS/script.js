@@ -127,6 +127,7 @@ function displayPoster(){
     var savedItem = saveList[i]
     var elem = document.createElement("img");
     elem.setAttribute("src", savedItem.img)
+    //elem.classList = "poster-history";
     elem.setAttribute("alt", savedItem.id)
     hearted.appendChild(elem);
     // hearted.innerHTML += `

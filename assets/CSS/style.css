@@ -65,7 +65,7 @@ header {
 
 /* search area*/
 
-.searchbar {
+.searchBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -137,6 +137,17 @@ p {
   margin-left: 30px;
   width: 80%;
   border: 2px solid gray;
+}
+
+.row-history {
+  margin-left: 30px;
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.poster-history {
+  margin: 5px;
 }
 
 /*
