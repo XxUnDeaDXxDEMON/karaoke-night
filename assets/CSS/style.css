@@ -133,10 +133,15 @@ p {
 }
 
 /* my movies history files*/
-.save-history {
-  margin-left: 30px;
-  width: 80%;
-  border: 2px solid gray;
+.row-history {
+  margin-left: 10px 30px;
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.poster-hisotry {
+  margin: 5px;
 }
 
 /*
