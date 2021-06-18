@@ -6,7 +6,7 @@ Chao Deng, Jessica Kelley, Jane Lu, and Richard Steavens
 
 ## Preview:
 
-Check out [Movie Night] (link)!
+Check out [Movie Night] :https://xxundeadxxdemon.github.io/movie-night/ ! 
 
 [![website demo] (gif)](link)
 
