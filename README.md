@@ -58,3 +58,7 @@ Successes:
 - Create and implement a section to display if the selected movie is available to stream and on which specific streaming services it is available (if any)
 - Enable user to create a profile/account
 - Implement drag/drop function to allow user to place their saved movies in a specific order ranking (1-5)
+
+## Presentation Slides
+
+Check out our [presentation](https://docs.google.com/presentation/d/1mZiuM9IAa2CaEQGjb5vFjvlfBJQ1YSJkdG5reZgpUtc/edit?usp=sharing)!
