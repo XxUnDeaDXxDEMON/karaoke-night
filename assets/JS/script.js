@@ -127,7 +127,7 @@ function displayPoster() {
     elem.setAttribute("src", savedItem.img);
     elem.setAttribute("alt", savedItem.id);
     hearted.appendChild(elem);
-    hearted.classList = "poster-history";
+
     // hearted.innerHTML += `
     //   <img src="${saveList[i].img}" alt="${saveList[i].id}"/>
     // `

@@ -136,12 +136,12 @@ p {
 .row-history {
   margin-left: 10px 30px;
   width: 98%;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-.poster-hisotry {
-  margin: 5px;
+.poster-history img {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*
