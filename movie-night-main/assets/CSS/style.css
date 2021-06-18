@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Gill Sans, sans-serif;
+  background-color: whitesmoke;
+}
+
+li {
+  list-style: none;
+}
+
+/*head bar*/
+
+header {
+  background-color: lightgray;
+  height: 10vh;
+  width: 100%;
+  position: relative;
+  border-bottom: solid 5px lightslategrey;
+}
+
+.navBar {
+  margin: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+}
+
+.title h2 {
+  margin-top: 10px;
+  font-family: fantasy;
+}
+.website-logo {
+  margin-left: 5px;
+  width: 5vw;
+  height: 7vh;
+}
+
+/*my movie button*/
+
+.movie-history {
+  margin: 7px 15px 10px;
+  display: block;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: whitesmoke;
+  padding: 5px 15px;
+}
+
+.movie-history:hover {
+  background-color: lightslategray;
+}
+
+/* search area*/
+
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#searchTerm {
+  text-align: center;
+  border-radius: 5px;
+  margin: 7px 0;
+  height: 5vh;
+}
+#searchBtn {
+  background-color: lightslategray;
+  border-radius: 5px;
+  margin: 7px 0 0 5px;
+  width: 3vw;
+  height: 5vh;
+}
+
+/* API */
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.movie-title {
+  margin: 10px 50px;
+  font-size: 30px;
+  width: 100%;
+}
+.movie-info {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-year {
+  padding: 10px 0;
+}
+
+.movie-ID {
+  padding: 10px 0 0 20px;
+}
+
+.poster-wiki {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 98%;
+}
+.poster {
+  padding: 10px 20px 0 50px;
+}
+
+/*wiki*/
+
+.wiki {
+  background-color: #b1b3b3ff;
+  margin: 10px 30px 0 30px;
+  padding: 0 10px;
+
+  /*border: solid 2px lightslategray;*/
+}
+
+p {
+  padding: 5px 0;
+}
+
+/* my movies history files*/
+.save-history {
+  margin-left: 30px;
+  width: 80%;
+  border: 2px solid gray;
+}
+
+/*
+footer {
+  background-color: lightgray;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(129, 143, 184);
+  height: 10vh;
+  padding: 25px 20px;
+}*/
