@@ -15,18 +15,19 @@ var apiFunction = function () {
       var Img = document.createElement("img");
       var i = Math.floor(Math.random() * 10);
       Img.setAttribute("src", response.Search[i].Poster);
-      Img.setAttribute("height", 800);
+      Img.setAttribute("height", "800px");
+      Img.setAttribute("width", "800px");
       Img.setAttribute("id", "imagePoster");
       container.appendChild(Img);
       // ---------------------------------------------------------------------data 2: movie title
       var movieTitle = document.querySelector("#movieTitle");
-      movieTitle.innerHTML = response.Search[i].Title;
+      movieTitle.innerHTML = "Movie Title: " + response.Search[i].Title;
       // ---------------------------------------------------------------------data 3: movie year
       var movieYear = document.querySelector("#movieYear");
-      movieYear.innerHTML = response.Search[i].Year;
+      movieYear.innerHTML = "Year: " + response.Search[i].Year;
       // ---------------------------------------------------------------------data 4: movie imdbID
       var movieId = document.querySelector("#movieId");
-      movieId.innerHTML = response.Search[i].imdbID;
+      movieId.innerHTML = "IMDb ID: " + response.Search[i].imdbID;
       //--------------------------------------------SECOND API: WIKIPEDIA------------------------------------
       // get the title from Movie response, and link it to wiki search
       var title = response.Search[i].Title;
@@ -90,7 +91,9 @@ function posterSave() {
   var ImgTwo = document.createElement("img");
   //var iTwo = Math.floor(Math.random() * response.Search.length);
   ImgTwo.setAttribute("src", imgSource);
-  ImgTwo.setAttribute("height", 200);
+  ImgTwo.setAttribute("height", "200px");
+  ImgTwo.setAttribute("width", "200px");
+  ImgTwo.setAttribute("margin", "10px");
 
   containerTwo.appendChild(ImgTwo);
   //Save movie poster when save button is clicked
