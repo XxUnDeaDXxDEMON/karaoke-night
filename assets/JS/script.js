@@ -15,7 +15,7 @@ var apiFunction = function () {
       var Img = document.createElement("img");
       var i = Math.floor(Math.random() * 10);
       Img.setAttribute("src", response.Search[i].Poster);
-      Img.setAttribute("height", 600);
+      Img.setAttribute("height", 800);
       Img.setAttribute("id", "imagePoster");
       container.appendChild(Img);
       // ---------------------------------------------------------------------data 2: movie title
@@ -91,25 +91,26 @@ function posterSave() {
   //var iTwo = Math.floor(Math.random() * response.Search.length);
   ImgTwo.setAttribute("src", imgSource);
   ImgTwo.setAttribute("height", 200);
+
   containerTwo.appendChild(ImgTwo);
   //Save movie poster when save button is clicked
   // // API to fetch http://www.omdbapi.com/?i=tt0120338
   return;
-  fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      console.log(response);
-      var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
-      containerTwo.innerHTML = "";
-      var ImgTwo = document.createElement("img");
-      var iTwo = Math.floor(Math.random() * response.Search.length);
-      ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
-      ImgTwo.setAttribute("height", 400);
-      containerTwo.appendChild(ImgTwo);
-      //End posted display
-    });
+  // fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (response) {
+  //     console.log(response);
+  //     var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
+  //     containerTwo.innerHTML = "";
+  //     var ImgTwo = document.createElement("img");
+  //     var iTwo = Math.floor(Math.random() * response.Search.length);
+  //     ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
+  //     ImgTwo.setAttribute("height", 400);
+  //     containerTwo.appendChild(ImgTwo);
+  //     //End posted display
+  //   });
 }
 function displayPoster() {
   var saveList = localStorage.getItem("poster");
@@ -122,15 +123,45 @@ function displayPoster() {
   }
   var hearted = document.getElementById("hearted-movie");
   for (let i = 0; i < saveList.length; i++) {
+    var div = document.createElement("div");
     var savedItem = saveList[i];
-    var elem = document.createElement("img");
-    elem.setAttribute("src", savedItem.img);
-    elem.setAttribute("alt", savedItem.id);
-    hearted.appendChild(elem);
+    var img = document.createElement("img");
+    img.setAttribute("src", savedItem.img);
+    img.setAttribute("alt", savedItem.id);
+    div.appendChild(img);
 
-    // hearted.innerHTML += `
-    //   <img src="${saveList[i].img}" alt="${saveList[i].id}"/>
-    // `
+    //while (hearted.firstChild) {
+    //hearted.removeChild(hearted.firstChild);
+    //}
+    //for (let saveList of lastSearches) {
+    //var img = document.createElement("img");
+    /* var btn = document.createElement("button");
+    btn.innerHTML = "remove";
+    btn.setAttribute("data-id", i);
+    btn.addEventListener("click", function (e) {
+      var id = e.target.getAttribute("data-id");
+      console.log(id);
+      saveList.splice(id, 1);
+      localStorage;
+    });
+    div.appendChild(btn);
+    //()=> shedule this function
+    //elem.addEventListener("click", () => displayPoster(saveList));
+    //button.appendChild(elem);
+    //
+    hearted.appendChild(div);
+    // }
+  }*/
+    if (saveList.length > 0) {
+      var resetBtn = document.createElement("button");
+      resetBtn.innerHTML = "clear history";
+      resetBtn.addEventListener("click", function () {
+        localStorage.removeItem("poster");
+        hearted.innerHTML = "";
+        resetBtn.classList = "resetBtn";
+      });
+      hearted.appendChild(resetBtn);
+    }
   }
 }
 displayPoster();
