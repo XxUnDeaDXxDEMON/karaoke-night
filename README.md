@@ -6,9 +6,7 @@ Chao Deng, Jessica Kelley, Jane Lu, and Richard Steavens
 
 ## Preview:
 
-Check out [Movie Night] :https://xxundeadxxdemon.github.io/movie-night/ ! 
-
-[![website demo] (gif)](link)
+Check out [Movie Night](https://xxundeadxxdemon.github.io/movie-night/)!
 
 ## Concept:
 
@@ -27,10 +25,10 @@ Technologies Used:
 Tasks & Roles:
 
 - Overall Idea: The Group
-- GitHub Repository Creation: Richard
 - HTML & CSS: Jane
 - JavaScript APIs: Chao
 - JavaScript Local Storage: Jessica
+- JavaScript Appending Saved to Website: Jessica, Jane, and assistance from TA Clarence
 - README: Jessica
 - Presentation Slides: Jessica
 - Presentation: The Group
@@ -56,6 +54,11 @@ Successes:
 ## Future Direction
 
 - Work through bugs in the API itself
-- Create amd implement a section to display if the selected movie is available to stream and on which specific streaming services it is available (if any)
+- Enable the user to delete saved movies
+- Create and implement a section to display if the selected movie is available to stream and on which specific streaming services it is available (if any)
 - Enable user to create a profile/account
 - Implement drag/drop function to allow user to place their saved movies in a specific order ranking (1-5)
+
+## Presentation Slides
+
+Check out our [presentation](https://docs.google.com/presentation/d/1mZiuM9IAa2CaEQGjb5vFjvlfBJQ1YSJkdG5reZgpUtc/edit?usp=sharing)!

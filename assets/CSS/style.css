@@ -51,7 +51,7 @@ header {
 
 /* search area*/
 
-.searchbar {
+.searchBar {
   display: flex;
   justify-content: space-between;
 }
@@ -146,4 +146,25 @@ p {
   display: flex;
   flex-wrap: wrap;
 }
-*/
+
+.row-history {
+  margin-left: 30px;
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.poster-history {
+  margin: 5px;
+}
+
+/*
+footer {
+  background-color: lightgray;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(129, 143, 184);
+  height: 10vh;
+  padding: 25px 20px;
+}*/
