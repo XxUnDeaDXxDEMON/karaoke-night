@@ -21,6 +21,8 @@ Technologies Used:
 - JavaScript
 - APIs
 - JSON
+- Materialize
+- Bulma
 
 Tasks & Roles:
 
