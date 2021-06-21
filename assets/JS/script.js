@@ -3,7 +3,7 @@
 var apiFunction = function () {
   var search = document.querySelector("#searchTerm").value;
   // Make a `fetch` request from MOVIE
-  fetch(`http://www.omdbapi.com/?s=${search}&apikey=46b2d125`)
+  fetch(`https://www.omdbapi.com/?s=${search}&apikey=46b2d125`)
     .then(function (response) {
       return response.json();
     })
@@ -91,7 +91,7 @@ function posterSave() {
   ImgTwo.setAttribute("margin", "10px");
   containerTwo.appendChild(ImgTwo);
   // Save movie poster when save button is clicked
-  // API to fetch http://www.omdbapi.com/?i=tt0120338
+  // API to fetch https://www.omdbapi.com/?i=tt0120338
   return;
 }
 function displayPoster() {
