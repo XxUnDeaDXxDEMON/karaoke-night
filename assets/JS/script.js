@@ -114,10 +114,6 @@ function displayPoster() {
 
     // To clear history
     if (saveList.length > 0) {
-      var img = document.createElement("img");
-      img.setAttribute("src", savedItem.img);
-      img.setAttribute("alt", savedItem.id);
-      div.appendChild(img);
 
       var resetBtn = document.createElement("button");
       resetBtn.innerHTML = "clear history";
