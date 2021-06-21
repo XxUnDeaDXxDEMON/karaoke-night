@@ -29,6 +29,7 @@ Tasks & Roles:
 - JavaScript APIs: Chao
 - JavaScript Local Storage: Jessica
 - JavaScript Appending Saved to Website: Jessica, Jane, and assistance from TA Clarence
+- Clear History: Jane and Jessica
 - README: Jessica
 - Presentation Slides: Jessica
 - Presentation: The Group
@@ -54,7 +55,7 @@ Successes:
 ## Future Direction
 
 - Work through bugs in the API itself
-- Enable the user to delete saved movies
+- Enable user to delete individually selected movies they saved
 - Create and implement a section to display if the selected movie is available to stream and on which specific streaming services it is available (if any)
 - Enable user to create a profile/account
 - Implement drag/drop function to allow user to place their saved movies in a specific order ranking (1-5)

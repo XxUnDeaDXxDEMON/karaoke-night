@@ -62,13 +62,10 @@ var apiFunction = function () {
 //--------------------------------------------RUN ON WEBSITE LOAD-----------------------------------
 var saveList = localStorage.getItem("poster");
 if (saveList == null) {
-  saveList = []; //Create as empty array if no local storage
-  //alert("local storage is empty");
+  saveList = []; // Create as empty array if no local storage
 } else {
-  saveList = JSON.parse(localStorage.getItem("poster")); //Create local storage as an array
-  //alert("local storage has something");
+  saveList = JSON.parse(localStorage.getItem("poster")); // Create local storage as an array
 }
-//alert(saveList);
 //--------------------------------------------RUN THE API FUNCTION-----------------------------------
 document.getElementById("searchBtn").onclick = apiFunction;
 document.getElementById("saveBtn").onclick = posterSave;
@@ -82,79 +79,40 @@ function posterSave() {
     img: imgSource,
   };
   saveList.push(obj);
-  //alert(saveList.length); //Debug to check the length of the local storage array
-  if (saveList.length > 5) saveList.shift();
-  //alert(saveList[0]);
+  if (saveList.length > 5) saveList.shift(); // Queueing, created to implement first in first out for saved movies
   localStorage.setItem("poster", JSON.stringify(saveList));
-  var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
-  //containerTwo.innerHTML = "";
+  
+  // Display saved movie
+  var containerTwo = document.querySelector("#hearted-movie");
   var ImgTwo = document.createElement("img");
-  //var iTwo = Math.floor(Math.random() * response.Search.length);
   ImgTwo.setAttribute("src", imgSource);
   ImgTwo.setAttribute("height", "200px");
   ImgTwo.setAttribute("width", "200px");
   ImgTwo.setAttribute("margin", "10px");
-
   containerTwo.appendChild(ImgTwo);
-  //Save movie poster when save button is clicked
-  // // API to fetch http://www.omdbapi.com/?i=tt0120338
+  // Save movie poster when save button is clicked
+  // API to fetch http://www.omdbapi.com/?i=tt0120338
   return;
-  // fetch(`http://www.omdbapi.com/?i=${saveList[0]}&apikey=46b2d125`)
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //     var containerTwo = document.querySelector("#hearted-movie"); //Figure out where to load this
-  //     containerTwo.innerHTML = "";
-  //     var ImgTwo = document.createElement("img");
-  //     var iTwo = Math.floor(Math.random() * response.Search.length);
-  //     ImgTwo.setAttribute("src", response.Search[iTwo].Poster);
-  //     ImgTwo.setAttribute("height", 400);
-  //     containerTwo.appendChild(ImgTwo);
-  //     //End posted display
-  //   });
 }
 function displayPoster() {
   var saveList = localStorage.getItem("poster");
   if (saveList == null) {
-    saveList = []; //Create as empty array if no local storage
-    //alert("local storage is empty");
+    saveList = []; // Create as empty array if no local storage
   } else {
-    saveList = JSON.parse(localStorage.getItem("poster")); //Create local storage as an array
-    //alert("local storage has something");
+    saveList = JSON.parse(localStorage.getItem("poster")); // Create local storage as an array
   }
   var hearted = document.getElementById("hearted-movie");
+
+  // As long as the index is less than the length of the saveList variable, run this for loop, then add one to index at end of for loop
   for (let i = 0; i < saveList.length; i++) {
-    var div = document.createElement("div");
+    //var div = document.createElement("div"); // Commented out as calling variable was not working
     var savedItem = saveList[i];
     var img = document.createElement("img");
     img.setAttribute("src", savedItem.img);
     img.setAttribute("alt", savedItem.id);
-    div.appendChild(img);
+    hearted.appendChild(img); // Changed to hearted since that is the local storage variable
 
-    //while (hearted.firstChild) {
-    //hearted.removeChild(hearted.firstChild);
-    //}
-    //for (let saveList of lastSearches) {
-    //var img = document.createElement("img");
-    /* var btn = document.createElement("button");
-    btn.innerHTML = "remove";
-    btn.setAttribute("data-id", i);
-    btn.addEventListener("click", function (e) {
-      var id = e.target.getAttribute("data-id");
-      console.log(id);
-      saveList.splice(id, 1);
-      localStorage;
-    });
-    div.appendChild(btn);
-    //()=> shedule this function
-    //elem.addEventListener("click", () => displayPoster(saveList));
-    //button.appendChild(elem);
-    //
-    hearted.appendChild(div);
-    // }
-  }*/
+    // To clear history
     if (saveList.length > 0) {
       var resetBtn = document.createElement("button");
       resetBtn.innerHTML = "clear history";
