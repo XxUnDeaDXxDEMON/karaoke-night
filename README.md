@@ -8,6 +8,8 @@ Chao Deng, Jessica Kelley, Jane Lu, and Richard Steavens
 
 Check out [Movie Night](https://xxundeadxxdemon.github.io/movie-night/)!
 
+[![website demo](assets/Images/movie-night.gif)](https://media.giphy.com/media/DkT6g7T64tLEEaTdfu/giphy.gif)
+
 ## Concept:
 
 Our goal was to create a space for users to search movies and receive pertinent information about the specific movie they searched. Further, we wanted to enable users to favorite a select list of up to five movies that they can go back to next time they visit our website. By using two movie APIs to fetch information including title, poster, year, ID, and synopsis, Movie Night is a one stop shop for all things movie information.
